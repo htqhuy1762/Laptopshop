@@ -1,6 +1,12 @@
-# Java Spring MVC - 
-Dự án Laptopshop 
+# Dự án Laptopshop 
+Công nghệ sử dụng:
+FE: JSP, Jquery, Bootstrap.
+BE: Java, Spring Boot, Spring MVC, Spring JPA, Spring security.
 
 ## Các tính năng
-Mọi thông tin về Tác giả Hỏi Dân IT, các bạn có thể tìm kiếm tại đây:
+1. Phân quyền người dùng: Admin, User.
+2. Login / Logout.
+3. Xem trang chủ, danh sách sản phẩm (User).
+4. Giỏ hàng (Thêm, xóa) (User / Admin).
+
 

@@ -11,7 +11,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -27,7 +26,7 @@ public class User {
     private String email;
 
     @NotNull
-    @Size(min = 6, message = "Password must be at least 5 characters")
+    @Size(min = 5, message = "Password must be at least 5 characters")
     private String password;
 
     @NotNull
