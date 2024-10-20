@@ -5,7 +5,7 @@ uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>403 - Laptopshop</title>
+        <title>Thanks - Laptopshop</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="" name="keywords" />
         <meta content="" name="description" />
@@ -40,14 +40,16 @@ uri="http://www.springframework.org/tags/form" %>
             <div class="container py-5">
                 <div class="row">
                     <div class="col-12 mt-5">
-                        <div class="alert alert-danger" role="alert">
-                            Bạn không có quyền truy cập nguồn tài nguyên này.
+                        <div class="alert alert-success" role="alert">
+                            Cảm ơn bạn đã đặt hàng, đơn hàng đã được xác nhận thành công.
                         </div>
                         <a href="/" class="btn btn-success">Trở về trang chủ</a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <jsp:include page="../layout/feature.jsp" />
 
         <jsp:include page="../layout/footer.jsp" />
 

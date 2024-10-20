@@ -44,8 +44,6 @@
 
         <jsp:include page="../layout/banner.jsp" />
 
-        
-
         <!-- Fruits Shop Start-->
         <div class="container-fluid fruite py-5">
             <div class="container py-5">
@@ -92,9 +90,11 @@
                                                     <div
                                                         class="p-4 border border-secondary border-top-0 rounded-bottom"
                                                     >
-                                                        <h4 style="font-size: 15px"><a href="/product/${product.id}">${product.name}</a></h4>
+                                                        <h4 style="font-size: 15px">
+                                                            <a href="/product/${product.id}">${product.name}</a>
+                                                        </h4>
                                                         <p style="font-size: 15px">${product.shortDesc}</p>
-                                                        <div class="d-flex flex-lg-wrap">
+                                                        <div class="d-flex flex-lg-wrap justify-content-center">
                                                             <p
                                                                 style="font-size: 15px; text-align: center; width: 100%"
                                                                 class="text-dark fw-bold mb-3"
@@ -105,12 +105,22 @@
                                                                 />
                                                                 đ
                                                             </p>
-                                                            <a
-                                                                href="#"
-                                                                class="btn mx-auto border border-secondary rounded-pill px-3 text-primary"
-                                                                ><i class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                Add to cart</a
+                                                            <form
+                                                                action="/add-product-to-cart/${product.id}"
+                                                                method="post"
                                                             >
+                                                                <button
+                                                                    class="btn mx-auto border border-secondary rounded-pill px-3 text-primary"
+                                                                >
+                                                                    <i class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                                    Add to cart
+                                                                </button>
+                                                                <input
+                                                                    type="hidden"
+                                                                    name="${_csrf.parameterName}"
+                                                                    value="${_csrf.token}"
+                                                                />
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
