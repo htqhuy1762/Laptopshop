@@ -1,5 +1,7 @@
 package vn.hoidanit.laptopshop.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import vn.hoidanit.laptopshop.domain.Order;
@@ -42,8 +44,8 @@ public class ProductService {
         return pr;
     }
 
-    public List<Product> getAllProducts() {
-        return this.productRepository.findAll();
+    public Page<Product> getAllProducts(Pageable pageable) {
+        return this.productRepository.findAll(pageable);
     }
 
     public void deleteProductById(long id) {

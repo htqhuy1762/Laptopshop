@@ -57,8 +57,7 @@
                                 <li class="nav-item">
                                     <a
                                         class="d-flex m-2 py-2 bg-light rounded-pill active"
-                                        data-bs-toggle="pill"
-                                        href="#tab-1"
+                                        href="/products"
                                     >
                                         <span class="text-dark" style="width: 130px">All Products</span>
                                     </a>
@@ -94,7 +93,7 @@
                                                             <a href="/product/${product.id}">${product.name}</a>
                                                         </h4>
                                                         <p style="font-size: 15px">${product.shortDesc}</p>
-                                                        <div class="d-flex flex-lg-wrap justify-content-center">
+                                                        <div class="d-flex flex-lg-wrap justify-content-center flex-column">
                                                             <p
                                                                 style="font-size: 15px; text-align: center; width: 100%"
                                                                 class="text-dark fw-bold mb-3"

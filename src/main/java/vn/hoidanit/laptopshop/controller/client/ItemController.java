@@ -2,8 +2,13 @@ package vn.hoidanit.laptopshop.controller.client;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import vn.hoidanit.laptopshop.domain.User;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -134,5 +139,24 @@ public class ItemController {
         String email = (String) session.getAttribute("email");
         this.productService.handleAddProductToCart(email, id, session, quantity);
         return "redirect:/product/" + id;
+    }
+
+    @GetMapping("/products")
+    public String getProductsPage(Model model, @RequestParam("page") Optional<String> pageOptional) {
+        int page = 1;
+        try {
+            if(pageOptional.isPresent()) {
+                page = Integer.parseInt(pageOptional.get());
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        Pageable pageable = PageRequest.of(page - 1, 6);
+        Page<Product> products = this.productService.getAllProducts(pageable);
+        List<Product> productList = products.getContent();
+        model.addAttribute("products", productList);
+        model.addAttribute("totalPages", products.getTotalPages());
+        model.addAttribute("currentPage", page);
+        return "client/product/show";
     }
 }

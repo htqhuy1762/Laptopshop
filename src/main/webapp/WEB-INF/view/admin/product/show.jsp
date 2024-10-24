@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,7 +49,9 @@
                                                 <tr>
                                                     <td>${product.id}</td>
                                                     <td>${product.name}</td>
-                                                    <td>${product.price}</td>
+                                                    <td>
+                                                        <fmt:formatNumber value="${product.price}" type="currency" />
+                                                    </td>
                                                     <td>${product.factory}</td>
                                                     <td>
                                                         <a class="btn btn-success" href="/admin/product/${product.id}"
@@ -69,6 +72,37 @@
                                             </c:forEach>
                                         </tbody>
                                     </table>
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination justify-content-center">
+                                            <li class="page-item">
+                                                <a
+                                                    class="page-link ${currentPage eq 1 ? 'disabled' : ''}"
+                                                    href="/admin/product?page=${currentPage - 1}"
+                                                    aria-label="Previous"
+                                                >
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <c:forEach begin="0" end="${totalPage - 1}" varStatus="loop">
+                                                <li class="page-item">
+                                                    <a
+                                                        class="page-link ${(loop.index + 1) eq currentPage ? 'active' : ''}"
+                                                        href="/admin/product?page=${loop.index + 1}"
+                                                        >${loop.index + 1}</a
+                                                    >
+                                                </li>
+                                            </c:forEach>
+                                            <li class="page-item">
+                                                <a
+                                                    class="page-link ${currentPage eq totalPage ? 'disabled' : ''}"
+                                                    href="/admin/product?page=${currentPage + 1}"
+                                                    aria-label="Next"
+                                                >
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
